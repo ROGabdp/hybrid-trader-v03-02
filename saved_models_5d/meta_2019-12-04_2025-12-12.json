@@ -17,7 +17,7 @@
   "dropout_rate": 0.05,
   "lstm_units": 256,
   "batch_size": 12,
-  "training_timestamp": "2025-12-13T19:01:37.685819",
+  "training_timestamp": "2025-12-13T21:49:57.363873",
   "technical_indicators": {
     "kd_params": [
       9,
@@ -31,7 +31,7 @@
     ]
   },
   "metrics": {
-    "rmse": 521.9,
-    "r2": -1.681
+    "rmse": 548.17,
+    "r2": -1.9576
   }
 }

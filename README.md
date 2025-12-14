@@ -2,6 +2,36 @@
 
 這是一個先進的演算法交易系統，結合了用於價格預測的 **LSTM-SSAM** (Long Short-Term Memory with Sequential Self-Attention) 以及用於交易決策的 **Pro Trader RL** (Reinforcement Learning)。
 
+# v03-02 更新
+- 更新 .\setup_env.ps1，解決環境安裝問題。
+- 新增 T+20 LSTM 模型訓練。
+- 新增 T+20 的建議門檻表 (1.0% ~ 3.0%)。
+- 新增 有濾網的回測 backtesting_with_filter.py。
+- 新增 信心度可視化 (Confidence Visualization)：說明回測報告現在包含圖表上的信心度標註與獨立 CSV 記錄。
+- 更新 DCA 混合策略：提及 backtest_v4_dca_hybrid_no_filter.py 的改進 (AI 動作細節與信心度追蹤)。
+- 新增 daily_ops_v4_intraday.py： 這個新腳本專為 V4 設計：
+    - 完整訓練：包含 T+1, T+5, 以及最新的 T+20 模型盤中訓練。
+    - V4 專屬推論：僅執行 V4 策略，不混雜 V3 資訊。
+    - 目標價顯示：報告中包含 T+1/T+5/T+20 的目標預測價格 (小數點下2位)。
+    - 獨立輸出：結果將存放在 intraday_runs_v4 資料夾，避免混淆。
+- 更新 gitignore：
+    保留規則 (Keep):
+      models_*/ (所有模型目錄)
+      results_*/ (所有結果目錄)
+      saved_models_*/ (所有 LSTM 模型存檔)
+      tensorboard_logs/
+      根目錄下的所有檔案 (包含 .csv, .py, .md 等)
+
+    忽略清單 (Ignore):
+      daily_runs* (每日維運產出的海量日誌)
+      intraday_runs* (盤中暫存檔)
+      backup/
+      logs/ (過程日誌)
+      cache/
+      data/
+      venv/, .vscode/, __pycache__/ 等標準雜訊
+- 更新 DCA 回測邏輯: strat 1 and start 2
+
 ## ✨ 核心特色 (Key Features)
 
 | 特色 | 說明 |
